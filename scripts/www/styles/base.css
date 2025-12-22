@@ -1,0 +1,417 @@
+﻿@charset "utf-8";
+/*****************************************************************
+** Copyright © 南京奥派信息产业股份公司研发部
+** 创建人:     李秋花
+** 创建日期:   2014年4月15日
+** 描 述:      base 样式模块 
+** 修改人:      
+** 修改日期:    
+** 修改说明:
+******************************************************************/
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+    color:#333;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    margin:0; padding:0; word-break:break-all; word-wrap: break-word;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio,canvas,video {
+    display: inline-block; *display: inline; *zoom: 1;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,button,input,select,textarea {
+    font:14px/1.4 微软雅黑;
+	color: #6B6D70;
+}
+input,select,textarea {
+    font-size:100%;
+}
+textarea {
+	overflow: auto;
+	resize: none;
+}
+input,button,select,textarea,*:focus{ outline:none;}
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+table {
+    border-collapse:collapse;
+	border-spacing:0;
+}
+
+/* IE bug fixed: th 不继承 text-align*/
+th {
+    text-align:inherit;
+}
+
+/* 去除默认边框 */
+fieldset, img, html, body, iframe {
+    border:0;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+    display:block;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr,acronym {
+    border:0;
+	font-variant:normal;
+}
+
+/* 一致的 del 样式 */
+del {
+    text-decoration:line-through;
+}
+
+address,caption,cite,code,dfn,th,var,i,small {
+    font-style:normal;
+    font-weight:400;
+}
+
+strong, b {
+	font-weight:700;
+}
+
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption,th {
+    text-align:left;
+}
+
+/* 让标题都自定义, 适应多个系统应用 */
+h1,h2,h3,h4,h5,h6 {
+    font-size:100%;
+    font-weight:500;
+}
+
+q:before,q:after {
+    content:'';
+}
+
+/* 统一上标和下标 */
+sub, sup {
+    font-size:75%;
+	line-height:0;
+	position:relative;
+	vertical-align:baseline;
+}
+sup { 
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+
+/* 正常链接 */
+a {color:#2879fe;outline:none;cursor: pointer;-webkit-transition: color .3s ease;transition: color .3s ease;}
+a:hover {color: #2879fe; text-decoration: none;opacity: 0.8;}
+
+
+/* 默认不显示下划线，保持页面简洁 */
+ins,a {
+    text-decoration:none;
+}
+
+a, button {
+	cursor: pointer;
+	outline: 0;
+}
+
+ul,ol,li { list-style: none;}
+
+/* 代码字体 */
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+/* 选中的文字设置 */
+::selection {
+	text-shadow: none;
+	color: #fff;
+	background-color: rgba(0,102,255,0.8);
+}
+/* 含placeholder的input文字设置 */
+::-webkit-input-placeholder {color:#9e9e9e;}
+:-moz-placeholder {color:#9e9e9e;}
+::-moz-placeholder {color:#9e9e9e;}
+:-ms-input-placeholder {color:#9e9e9e;}
+
+::-webkit-textarea-placeholder {color:#9e9e9e;}
+:-ms-textarea-placeholder {color:#9e9e9e;}
+
+/* 清理浮动 */
+.f-clear:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+}
+.f-clear {
+    zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+.f-hide {
+    display:none !important;
+}
+.f-show {
+    display:block;
+}
+
+/*强制换行*/
+.f-break {
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+	word-wrap:break-word;/*支持IE，chrome，FF*/
+}
+
+
+/* 设置内联, 减少浮动带来的bug */
+.f-left,
+.f-right {
+    display:inline;
+}
+.f-left {
+    float:left;
+}
+.f-right {
+    float:right;
+}
+
+/* 设置文字对齐方式 */
+.f-tal { 
+	text-align:left;
+}
+.f-tac { 
+	text-align:center;
+}
+.f-tar { 
+	text-align:right;
+}
+
+
+/* 单行文字溢出时出现省略号，需设定宽度 */ 
+.f-toe {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+.ellipsis2 {
+    overflow: hidden; /* 隐藏超出容器范围的内容 */
+    text-overflow: ellipsis; /* 显示省略号 */
+    display: -webkit-box; /* 将元素作为块级元素进行布局 */
+    -webkit-line-clamp: 2; /* 限制文本只显示两行 */
+    -webkit-box-orient: vertical; /* 设置文本在垂直方向上排列 */
+  }
+  .ellipsis3 {
+    overflow: hidden; /* 隐藏超出容器范围的内容 */
+    text-overflow: ellipsis; /* 显示省略号 */
+    display: -webkit-box; /* 将元素作为块级元素进行布局 */
+    -webkit-line-clamp: 3; /* 限制文本只显示两行 */
+    -webkit-box-orient: vertical; /* 设置文本在垂直方向上排列 */
+  }
+
+/* 文本的有无下划线 */ 
+.f-tdu,.f-tdu:hover {
+	text-decoration:underline;
+}
+.f-tdn,.f-tdn:hover {
+	text-decoration:none;
+}
+
+/*浮动层的显示与隐藏*/
+.x-hide {-webkit-transition-property: opacity,-webkit-transform;-moz-transition-property: opacity,-webkit-transform;-ms-transition-property: opacity,-webkit-transform;
+-o-transition-property: opacity,-webkit-transform;transition-property: opacity,-webkit-transform;-webkit-transition-duration: 0.15s;-moz-transition-duration: 0.15s;
+-ms-transition-duration: 0.15s;-o-transition-duration: 0.15s;transition-duration: 0.15s;-webkit-transition-timing-function: ease-out;-moz-transition-timing-function: ease-out;
+-ms-transition-timing-function: ease-out;-o-transition-timing-function: ease-out;transition-timing-function: ease-out;-webkit-transform: scale(0.9);opacity: 0;
+pointer-events: none;display: none\9;visibility: hidden;}
+.x-show {opacity: 1;-webkit-transform: scale(1);pointer-events: all;display: block\9;visibility: visible;}
+
+/* 简单的渐变 */
+.f-linear {
+    background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f1f1f1));
+    background: -moz-linear-gradient(top, #fcfcfc, #f1f1f1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f1f1f1');
+    background:-o-linear-gradient(top, #fcfcfc, #f1f1f1);
+    background:-ms-linear-gradient(top, #fcfcfc, #f1f1f1);
+    background: linear-gradient(top, #fcfcfc, #f1f1f1);
+}
+
+/* 浅色的渐变 */
+.f-linear-light {
+    background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f9f9f9));
+    background: -moz-linear-gradient(top, #fcfcfc, #f9f9f9);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f9f9f9');
+    background:-o-linear-gradient(top, #fcfcfc, #f9f9f9);
+    background:-ms-linear-gradient(top, #fcfcfc, #f9f9f9);
+    background: linear-gradient(top, #fcfcfc, #f9f9f9);
+}
+
+/* 人民币符号 */
+.f-rmb {
+    font-family: arial;
+    font-style: normal;
+    padding-right: 4px;
+}
+
+/* chrome 下字体过小的问题 */
+.f-webkit-adjust {
+    -webkit-text-size-adjust: none;
+}
+
+
+/*字体*/
+@font-face {font-family: 'iconfont';
+  src: url('../../iconfont/iconfont.eot'); /* IE9*/
+    src: url('../../iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+url('../../iconfont/iconfont.woff') format('woff'), /* chrome、firefox */
+url('../../iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+url('../../iconfont/iconfont.svg#svgFontName') format('svg'); /* iOS 4.1- */
+}
+[class^="icon-"],[class*=" icon-"]{font-family:"iconfont";font-size:16px;font-weight:normal;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased;}
+[class^="icon-"]:before,[class*=" icon-"]:before{ display: inline-block; text-decoration:inherit;speak:none}
+
+
+
+/*Google Chrome滚动条样式*/
+::-webkit-scrollbar {
+    width: 5px;/*竖向滚动条的宽度*/
+    height: 5px;/*横向滚动条的高度*/
+}
+/*滚动条轨道的样式*/
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+/*滚动条轨道内滑块的样式*/
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(155,155,155,0.4);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+}
+/*当焦点不在当前区域滑块的状态*/
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(155,155,155,0.4);
+}
+
+*, :after, :before { box-sizing: border-box; -o-box-sizing: border-box;-ms-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;}
+form { display: block; }
+
+.f-h20 {height: 20px; clear: both;}
+.f-h40 {height: 40px; clear: both;}
+.mb-10 { margin-bottom: 10px;}
+.mb-20 { margin-bottom: 20px;}
+
+/*颜色*/
+.f-cwhite,a.f-cwhite { color:#fff; }
+.f-cdarkblue,a.f-cdarkblue { color: #34495e;} 
+.f-cgreen,a.f-cgreen { color: #33BE25;}
+.f-cblue,a.f-cblue { color: #0096FF;} 
+.f-cgray,a.f-cgray { color: #999;} 
+.f-corg,a.f-corg {color: #F3A31B;}
+.f-cred,a.f-cred { color:#ff4141;}
+.f-lred,a.f-lred{color:#f64a4a;}
+.f-cpurple,a.f-cpurple { color:#725BFE;}
+.f-defaut{color:#666;}
+
+/* flex布局兼容start */
+.f-flexhv { display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-orient:horizontal; -webkit-box-direction: normal; -ms-flex-direction:row; flex-direction:row; -ms-flex-wrap:nowrap; flex-wrap:nowrap; -ms-flex-line-pack : center;  justify-content:center;align-items:center;}
+.display-flex{ display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;}
+.display-flex .flex-con{flex:1;-webkit-flex:1;}
+.flex1{flex:1;}
+.flexbox-dir-column{-webkit-box-orient: vertical;-webkit-box-direction: normal;-webkit-flex-direction: column;-ms-flex-direction: column;flex-direction: column;}
+.justify-center {-webkit-box-pack: center;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;}
+.justify-between {-webkit-box-pack: justify;-webkit-justify-content: space-between;-ms-flex-pack: justify;justify-content: space-between;}
+.justify-around {-webkit-justify-content: space-around;-ms-flex-pack: distribute;justify-content: space-around;}
+.align-center {-webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;}
+/* flex布局兼容end */
+/* 水平垂直居中 */
+.m-hvcenter { position: absolute; z-index: 100; top:50%; left:50%; -webkit-transform: translate(-50%,-50%); -moz-transform: translate(-50%,-50%); transform:translate(-50%,-50%);}
+.m-vcenter-hcenter {display: flex; display: -webkit-flex;justify-content: center;-webkit-justify-content: center;align-items: center;-webkit-align-items: center;}
+.m-hvcenter-row{display: flex; display: -webkit-flex;flex-direction: row;-webkit-flex-direction:row;align-items: center;-webkit-align-items: center;}
+
+
+.f-mgt5{margin-top: 5px;}
+.f-mgt45{margin-top: 45px;}
+.f-mgt40{margin-top: 40px;}
+.f-mgt50{margin-top: 50px;}
+.f-mgl50{margin-left: 50px;}
+.f-mgl20{margin-left: 20px;}
+.f-mgt10{margin-top: 10px;}
+.f-mgt15{margin-top:15px;}
+.f-mgt20{margin-top: 20px;}
+.f-mgr10{margin-right: 10px;}
+.f-mgr20{margin-right: 20px;}
+.f-pdt50{padding-top: 50px;}
+.f-pdt30{padding-top: 30px;}
+.f-pdb30{padding-bottom: 30px;}
+.f-pdt20{padding-top: 20px;}
+.f-pd20{padding: 20px;}
+.f-pdl20{padding-left: 20px;}
+.f-pdr20{padding-right: 20px;}
+.f-pdtb20{padding:20px 0;}
+.f-pdtb10{padding:10px 0;}
+.f-pdlr20{padding:0 20px;}
+.f-pdtb10{padding:10px 0;}
+.f-mgl5{margin-left: 5px;}
+.f-mgl10{margin-left: 10px;}
+.f-pdl15{padding-left: 15px;}
+.f-pdl10{padding-left: 10px;}
+.f-pdl30{padding-left: 30px;}
+.f-mgt30{margin-top: 30px;}
+.f-pdt50{padding-top: 50px;}
+.f-pdt10{padding-top:10px;}
+.f-pdt5{padding-top:5px;}
+
+.f-mb20 {margin-bottom: 20px;}
+.f-mb10 {margin-bottom: 10px;}
+.f-mgl40{margin-left: 40px;}
+
+.f-mgt92{margin-top: 92px;}
+.f-pd16{padding: 16px;}
+.f-mgt16{margin-top: 16px;}
+.f-mgt12{margin-top: 12px;}
+.f-mgr5{margin-right:5px;}
+.f-mgb5{margin-bottom:5px;}
+.f-mgl30{margin-left: 30px;}
+.f-mgr8{margin-right: 8px;}
+.f-mgl16{margin-left:16px;}
+.f-pdlr5{padding:0 5px;}
+.f-mgt24{margin-top: 24px;}
+
+.display-inlineblock{display:inline-block;}
+.f-vm{vertical-align: middle;}
+.f-vt{vertical-align: top;}
+
+.border-top{border-top: 1px solid #EDEFF1;}
+.border-right{border-right: 1px solid #EDEFF1;}
+.border-bottom{border-bottom: 1px solid #EDEFF1;}
+.border-left{border-left: 1px solid #EDEFF1;}
+.border{border:1px solid #EDEFF1;}
+
+.testbtns { position: absolute; right:150px; top: 20px;display: flex;flex-direction: row;align-items: center;}
+.testbtns .submitbtn { background:#ff4141; box-shadow:1px 1px 0 rgba(0,0,0,.1); color: #fff;min-width:80px;height:32px;line-height: 32px;}
+.m-time1 { font-size:16px; font-weight: 700; color:#fff; margin-right:15px;}
+.m-time1 i { margin-right: 5px; vertical-align:2px;}
+.m-time1 em { font-style: normal;font-weight: bold;}
+.paperQestion dl img{width:200px;height:200px;}
