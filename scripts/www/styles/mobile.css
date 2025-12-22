@@ -1,0 +1,101 @@
+@charset "utf-8";
+/*****************************************************************
+** Copyright © 南京奥派信息产业股份公司研发部
+** 创建人:     
+** 创建日期:   2025年12月15日
+** 描 述:      styles 样式模块 
+** 修改人:      
+** 修改日期:    
+** 修改说明:
+******************************************************************/
+html{font-size: 100px;}
+.onescreen{height: 100vh;}
+.bodybg-pic{background:#d3e4f9;background-size: 100% 100%;}
+.header{height:.5rem;line-height:.2rem;padding:.15rem .15rem;box-sizing: border-box;z-index: 12;background: #2879fe;}
+.header .logo-img ,
+.header .logo-img img{width:.3rem;display: block;}
+.header .logo-txt{color:#fff;font-size: .16rem;font-weight: 700;display: flex;align-items: center;}
+.header .logo-txt i{font-size: .3rem;margin-right:.1rem;}
+.header .back,.header a{color:#fff;margin-top:0;}
+.header .tag label{color:#fff;background-color: #fea128;padding:2px 10px;border-radius: 4px;margin-left: .1rem;font-size:.12rem;font-weight: normal;}
+.banner{position: relative;height:1.52rem;}
+/* index */
+.banner .banner-txt{color:#fff;width:50%;margin:0 auto;position: absolute;top:.15rem;left:.2rem;z-index: 12;}
+.banner .banner-txt h2{font-size: 0.18rem;font-weight: 700;}
+.banner .banner-txt p{margin-top: .1rem;font-size: .14rem;}
+.banner img{width:100%;}
+.content-card{position: relative;top:-.5rem;}
+.content-card h2{font-size:24px;color:#333;font-weight:700;}
+.content-card-index{display: flex;flex-direction: column;}
+.content-card-index .card-item{flex:1;background:#fff;border-radius: .1rem;box-shadow: 0 0 .1rem rgba(0,0,0,.1);position: relative;padding:.2rem;border:1px solid #efefef;margin-bottom: .2rem;}
+.content-card-index .card-item:last-child{margin-bottom: 0;}
+.content-card-index .card-item dt{font-weight: bold;text-align: center;font-size:.18rem;color:#333;display: flex;align-items: center;flex-direction: row;transition: all .5s;}
+.content-card-index .card-item dt i{width:.4rem;height: .4rem;border-radius: 50%;margin-right: .1rem;color:#fff;font-size:.2rem;text-align: center;line-height: .4rem;transition: all .5s;}
+.content-card-index .card-item dt span{transition: all .5s;}
+.content-card-index dd{margin-top: .2rem;color:#666;}
+.content-card-index dd .ft{border-top: 1px solid #eee;padding-top:.15rem;margin-top:.2rem}
+.content-card-index .card-item{position: relative;}
+.content-card-index .card-item:hover{border-color:#2879fe}
+.content-card-index .card-item:hover dt,
+.content-card-index .card-item.active dt{flex-direction: column;margin-top: -.4rem;}
+.content-card-index .card-item:hover dt i,
+.content-card-index .card-item.active dt i{width:.5rem;height:.5rem;font-size:.24rem;line-height: .5rem;margin-bottom: .1rem;}
+
+.content-card-index .card-item:first-child dt  i{background:#2879fe;}
+.content-card-index .card-item:nth-child(2) dt  i{background:#089674;}
+.content-card-index .card-item:nth-child(3) dt  i{background:#e36309;}
+.content-card-index .card-item:first-child a{color:#2879fe}
+.content-card-index .card-item:nth-child(2) a{color:#089674}
+.content-card-index .card-item:nth-child(3) a{color:#e36309}
+.footer{position: relative;color:#999;padding:0 .7rem;font-size:.12rem;}
+.footer-index{top:-.5rem}
+
+/* detail */
+.container-fulid{display: flex;margin:.1rem;flex-direction: column;}
+.sidebar{width:100%;}
+.sidebar,
+.content-generate{background-color: #fff;border-radius: .1rem;}
+.content-generate{margin-left:0;margin-top:.1rem;}
+.sidebar-title{font-size: .18rem;font-weight: 700;color:#333;}
+.download-bar a{display: block;}
+.sidebar-title a{font-weight: normal;font-size: .14rem;color:#2879fe}
+.sidebar .el-upload{display: block;}
+.sidebar .el-button{width:100%;}
+.sidebar .bottom-bar a{display: block;}
+/* tab */
+.tab-title{padding:.16rem .16rem .08rem .16rem;border-bottom:1px solid #ededed;padding-left: .2rem;}
+.tab-title a{padding-bottom: 8px;border-bottom: 2px solid  transparent;margin-right: 32px;color: #666;font-size:16px}
+.tab-title a.active{color: #2879fe;border-color: #2879fe;font-weight: bold;}
+.generate-title{color:#333;font-size:16px;font-weight: 700;}
+.generate-item a.icon-txt-box{border:1px solid #dedede;color:#666;padding:4px 12px;border-radius: 4px;font-size: 14px;}
+.generate-item a.icon-txt-box.green{color:#52c41a;border-color:#52c41a;}
+.generate-item a.icon-txt-box:hover{border-color: #2879fe;color: #2879fe;}
+.generate-item .download-img-xlsx{margin-top: 14px;}
+/* 历史 */
+.item-history{background: #fff; border:1px solid #efefef;margin-bottom: .2rem;padding:.1rem;border-radius: .1rem;transition: all .5s;position: relative;overflow: hidden;display: flex;padding-bottom: .3rem;}
+.item-history:hover{border-color:#2879fe;}
+.item-history:last-child{margin-bottom: 0;}
+.item-history i{color:#f1bb4c;font-size:.3rem;display: block;margin-top: .03rem;}
+.item-history .operation{position: absolute;bottom:.1rem;right:.1rem;}
+.item-history .operation a{padding-left:.1rem;color:#666;}
+.item-history .operation a.icon-shanchu{color:#ff4400}
+.item-history label{background-color: #2879fe;color:#fff;padding:2px 14px;position: absolute;top:0;right:0;border-radius: .04rem 0 0  .22rem;}
+.title-history  h3{color:#333;font-weight: 700;}
+.empty , .empty a{color:#ccc;font-size: .12rem;}
+.empty a:hover{color:#ff4400;}
+/* loading */
+.loading{height: calc(100vh - 4.3rem);justify-content: center;flex-direction: column;align-items: center;}
+.loading p{padding-top: 1rem;font-weight: bold;font-size:.3rem;color: #7ba8fc;}
+.waiting{display: none}
+.process.display-flex,.process-container{width:100%;}
+.process.display-flex{margin-top:20px;}
+.process-container{margin:0 auto 0 70px;}
+/* 暂无数据 */
+.m-nodata{margin-top: -.3rem;}
+.m-nodata,
+.m-nodata::before{width:1.5rem;height:1.5rem;}
+.m-nodata::after{bottom:-0.3rem;}
+
+/* echart */
+.echart{width:80vw;height: 4.2rem;margin:0 auto;}
+
