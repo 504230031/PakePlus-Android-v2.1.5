@@ -1,11 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PakePlus</title>
-    </head>
-    <body>
-        PakePlus
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="styles/base.css?v=20251218" />
+    <link rel="stylesheet" href="styles/common.css?v=20251218" />
+    <link rel="stylesheet" href="iconfont/iconfont.css?v=20251218" />
+    <!-- PC端样式：屏幕宽度 ≥ 768px（可自定义阈值） -->
+    <link rel="stylesheet" href="styles/style.css?v=20251218" media="screen and (min-width: 768px)">
+    <!-- 移动端样式：屏幕宽度 < 768px -->
+    <link rel="stylesheet" href="styles/mobile.css?v=20251218" media="screen and (max-width: 767px)">
+    <title>跨境电商智能体</title>
+</head>
+<body>
+    <form id="index">
+        <div class="onescreen">
+            <!-- header start -->
+            <div class="header f-clear">
+                <div class="f-left logo-txt">
+                    <div class="logo-img"><img src="images/logo.png"></div>
+                    <div class="f-mgl10">跨境电商智能体</div>
+                </div>
+            </div>
+            <!-- header end -->
+            <!-- banner -->
+            <div class="banner">
+                <img src="images/banner.png" alt="">
+                <div class="banner-txt">
+                    <h2>跨境实战工具集</h2>
+                    <p>选择以下智能体工具，获取专业的跨境电商数据洞察和决策支持</p>
+                </div>
+            </div>
+            <!-- banner end -->
+            <!-- content start-->
+            <div class="content-card">
+                <div  class="content-card-index f-mgt10 f-pd20">
+                    <dl class="card-item" v-on:click="goClick('detail.html')">
+                        <dt><i class="iconfont icon-sousuo-jiegou"></i><span>跨境搜索词根解构师</span></dt>
+                        <dd>
+                            <p>上传跨境热搜关键词数据，即可通过智能分析获取核心词根洞察、挖掘热门商品趋势，并辅助发现潜在蓝海商机。</p>
+                            <div class="f-clear ft">
+                                <a href="detail.html">进入</a>
+                                <a class="f-right iconfont icon-jiantou-xiangyou" href="detail.html"></a>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="card-item" >
+                        <dt><i class="iconfont icon-jiage-guihua"></i>跨境价格带规划师</span></dt>
+                        <dd>
+                            <p>上传商品榜单数据，并自定义价格区间，即可获取分价格带的商品品牌分布、卖家竞争格局与销售表现解析。</p>
+                            <div class="f-clear ft dis">
+                                <a>进入</a>
+                                <a class="f-right iconfont icon-jiantou-xiangyou"></a>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="card-item">
+                        <dt><i class="iconfont icon-pingjia-jiema"></i>跨境评价解码官</span></dt>
+                        <dd>
+                            <p>上传商品评价数据，即可获得涵盖价格、物流、促销、售后、销量、功能、外观等多维度的深入分析，为您提供清晰的产品优化方向与决策参考。</p>
+                            <div class="f-clear ft dis">
+                                <a>进入</a>
+                                <a class="f-right iconfont icon-jiantou-xiangyou"></a>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <!-- content end-->
+            <!-- footer start-->
+            <div class="footer footer-index">
+                <div class="f-tac">Copyright © 2025 南京奥派信息产业股份公司 版权所有 | 苏ICP备12023604号-8 | 专业的跨境电商数据解决方案</div>
+            </div>
+            <!-- footer start-->
+        </div>
+    </form>
+    <script src="js/vue.min.js?v=20251218" type="text/javascript"></script>
+    <script src="js/index.js?v=20251218" type="text/javascript"></script>
+</body>
 </html>
