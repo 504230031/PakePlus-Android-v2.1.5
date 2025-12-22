@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/base.css?v=20251218" />
+    <link rel="stylesheet" href="styles/common.css?v=20251218" />
+    <link rel="stylesheet" href="styles/element.css?v=20251218" />
+    <link rel="stylesheet" href="iconfont/iconfont.css?v=20251218" />
+     <!-- PC端样式：屏幕宽度 ≥ 768px（可自定义阈值） -->
+     <link rel="stylesheet" href="styles/style.css?v=20251218" media="screen and (min-width: 768px)">
+     <!-- 移动端样式：屏幕宽度 < 768px -->
+     <link rel="stylesheet" href="styles/mobile.css?v=20251218" media="screen and (max-width: 767px)">
+    <title>跨境电商智能体</title>
+</head>
+<body class="bodybg-pic">
+    <form id="detail">
+        <div class="">
+            <!-- header start -->
+            <div class="header header-bg f-clear">
+                <div class="f-left logo-txt"> 
+                    <div class="logo-img"><img src="images/logo.png"></div>
+                    <div class="f-mgl10">跨境电商智能体</div>
+                    <div class="f-mgl10 tag">
+                        <label>跨境搜索词根解构师</label>
+                    </div>
+                </div>
+                <!-- <div class="f-left logo-txt"><i class="iconfont icon-sousuo-jiegou"></i>跨境搜索词根解构师</div> -->
+                <div class="f-right back f-mgt5">
+                    <a href="index.html"><i class="iconfont icon-fanhui f-mgr5"></i></a>
+                </div>
+            </div>
+            <!-- header end -->
+            <!-- container start -->
+            <div class="container-fulid">
+                <div class="sidebar f-pd20">
+                    <div class="sidebar-title f-clear">关键词数据<a class="f-right" v-on:click="downloadfile('tepmlate/热搜关键词数据模板.xlsx','热搜关键词数据模板')"><i class="iconfont icon-xiazai f-mr5"></i>下载表格模板</a>
+                        <a class="f-right f-mgr10" v-on:click="uploadDefaultFile()"><i class="iconfont icon-neizhishuju f-mgr5"></i>内置数据</a>
+                    </div>
+                    <div class="descr f-mgt15">
+                        <p>上传跨境热搜关键词数据（csv/excel文件），至少需包含搜索数据、点击率、转化率、竞争程度等数据。</p>
+                    </div>
+                    <div class="f-mgt20">
+                        <el-upload
+                        class="upload-demo"
+                        action=""
+                        :auto-upload="false"
+                        :on-change="handleChange"
+                        :on-preview="handlePreview"
+                        :on-remove="handleRemove"
+                        :before-remove="beforeRemove"
+                        :on-exceed="handleExceed"
+                        multiple
+                        accept=".csv,.xls,.xlsx"
+                        :limit="1"
+                        :file-list="fileListExcel">
+                        <el-button size="small" type="default"><i class="iconfont icon-shangchuan f-mgr5"></i>点击上传</el-button>
+                        <div slot="tip" class="el-upload__tip f-mgt10">支持CSV、XLS、XLSX格式文件，单文件大小不超过10MB</div>
+                        </el-upload>
+                    </div>
+                    <div class="f-mgt15 bottom-bar">
+                        <a class="u-button primary" v-on:click="excelToJson()" style="display: none;" v-show="uploadType==1"><i class="iconfont icon-kaishifenxi f-mgr5"></i>开始分析</a>
+                        <a class="u-button primary" v-on:click="excelToJson()" style="display: none;" v-show="uploadType==2"><i class="iconfont icon-kaishifenxi f-mgr5"></i>重新分析</a>
+                    </div>
+                </div>
+                <div class="content-generate flex1 f-mgl20">
+                    <div class="tab-title">
+                        <a v-bind:class="tabType==1?'active':''" v-on:click="tabTypeClick(1)"class="">分析结果</a> 
+                        <a v-bind:class="tabType==2?'active':''" v-on:click="tabTypeClick(2)"class="">历史记录</a>
+                    </div>
+                    <!-- 暂无数据 -->
+                    <div class="loading m-hvcenter-row" v-show="tabType==1&&isExcelSaving==false&&isData==false">
+                        <div class="m-nodata"></div>
+                    </div>
+                    <!-- loading -->
+                    <!-- div class="process-container"  v-show="tabType==1&&isExcelSaving==true"> -->
+                    <div class="process display-flex" v-show="tabType==1&&isExcelSaving==true">
+                        <div class="process-container">
+                            <div class="process-step step-1">
+                                <div class="step-point">1</div>
+                                <div class="step-title">文档处理</div>
+                                <div class="step-desc">解析文档内容</div>
+                            </div>
+                            <div class="process-step step-2">
+                                <div class="step-point">2</div>
+                                <div class="step-title">数据提取</div>
+                                <div class="step-desc">从文档中提取必要数据</div>
+                            </div>
+                            <div class="process-step step-3">
+                                <div class="step-point">3</div>
+                                <div class="step-title">数据处理</div>
+                                <div class="step-desc">对提取数据进行处理、计算</div>
+                            </div>
+                            <div class="process-step step-4">
+                                <div class="step-point">4</div>
+                                <div class="step-title">图表生成</div>
+                                <div class="step-desc">根据数据处理结果生成图表内容</div>
+                            </div>
+                            <div class="process-step step-5">
+                                <div class="step-point">5</div>
+                                <div class="step-title">结果整理</div>
+                                <div class="step-desc">整体汇总结果摘要，并输出</div>
+                            </div>
+                        </div>
+                        <div class="f-mgl20 flex1 waiting f-tac">
+                            <div><img src="images/loading-0.gif"></div>
+                            <h3>正在分析数据</h3>
+                            <div class="step-desc">请稍后，系统正在执行数据分析流程 </div>
+                        </div>
+                    </div>
+                    <!-- 分析结果 -->
+                    <div class="generate-box f-pd20" style="display: none;" v-show="tabType==1&&isExcelSaving==false&&isData==true">
+                        <!-- 饼图 -->
+                        <div class="generate-item">
+                            <div class="f-clear">
+                                <div class="f-left">
+                                    <div class="generate-title">关键词词根词频统计</div>
+                                    <div class="descr f-mgt5">
+                                        <p>显示每个关键词词根的长尾词内容、词频以及占比。</p>
+                                    </div>
+                                </div>
+                                <div class="f-right download-img-xlsx">
+                                    <a class="icon-txt-box" v-on:click="downloadEchart('echartA')"><i class="iconfont icon-xiazai f-mgr5"></i>PNG</a>
+                                    <a class="icon-txt-box green" v-on:click="downloadExcel(1)"><i class="iconfont icon-xlsx f-mgr5"></i>XLSX</a>
+                                </div>
+                            </div>
+                            <div class="echart-item-body">
+                                <div id="echartA" class="echart"></div>
+                            </div>
+                        </div>
+                        <!-- 柱状折线图 -->
+                        <div class="generate-item">
+                            <div class="f-clear">
+                                <div class="f-left">
+                                    <div class="generate-title">关键词词根搜索与转化统计</div>
+                                    <div class="descr f-mgt5">
+                                        <p>显示每个关键词词根的总搜索数据以及总转化数据统计。</p>
+                                    </div>
+                                </div>
+                                <div class="f-right download-img-xlsx">
+                                    <a class="icon-txt-box" v-on:click="downloadEchart('echartB')"><i class="iconfont icon-xiazai f-mgr5"></i>PNG</a>
+                                    <a class="icon-txt-box green" v-on:click="downloadExcel(2)"><i class="iconfont icon-xlsx f-mgr5"></i>XLSX</a>
+                                </div>
+                            </div>
+                            <div class="echart-item-body">
+                                <div id="echartB" class="echart"></div>
+                            </div>
+                        </div>
+                        <!-- 柱状图 -->
+                        <div class="generate-item">
+                            <div class="f-clear">
+                                <div class="f-left">
+                                    <div class="generate-title">关键词词根蓝海值</div>
+                                    <div class="descr f-mgt5">
+                                        <p>显示每个关键词词根的蓝海程度，根据搜索与竞争的比值得出的相对值，仅供参考。</p>
+                                    </div>
+                                </div>
+                                <div class="f-right download-img-xlsx">
+                                    <a class="icon-txt-box" v-on:click="downloadEchart('echartC')"><i class="iconfont icon-xiazai f-mgr5"></i>PNG</a>
+                                    <a class="icon-txt-box green" v-on:click="downloadExcel(3)"><i class="iconfont icon-xlsx f-mgr5"></i>XLSX</a>
+                                </div>
+                            </div>
+                            <div class="echart-item-body">
+                                <div id="echartC" class="echart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 历史记录 -->
+                    <div class="generate-box f-pd20" style="display: none;" v-show="tabType==2">
+                        <div>
+                            <div class="item-history f-clear" v-for="(item,index) in list">
+                                <i class="iconfont icon-fenxi5 f-left"></i>
+                                <div class="title-history f-left f-mgl10">
+                                    <h3 v-text="item.FileName"></h3>
+                                    <div class="descr f-clear f-mgt5">
+                                        <span class="f-left">1个文件</span>
+                                        <span class="f-left" v-text="timeFormat(item.AddDate)"></span>
+                                    </div>                                
+                                </div>
+                                <label v-if="item.DefiStatus!=1" v-text="item.DefiStatus==3?'生成失败':'生成中'"></label>
+                                <div class="f-right operation">
+                                    <a class="iconfont icon-chakan" title="查看" v-on:click="viewClick(item.RootStructureID)"></a>
+                                    <a class="iconfont icon-shanchu" title="删除" v-on:click="deleteClick(item.RootStructureID)"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="f-tar f-mgr20 f-mgt20 empty" v-show="list.length!=0">
+                            <a v-on:click="deleteAllClick()"><i class="iconfont icon-qingkong f-mgr5"></i>清空历史记录</a>
+                        </div>
+                        <div class="f-tac f-mgt20" v-show="pageTotal>0">
+                            <el-pagination
+                            background
+                            layout="prev, pager, next"
+                            :total="pageTotal"
+                            :page-size="pageSize"
+                            :current-page="pageIndex"
+                            v-on:current-change="handlePageChange">
+                            </el-pagination>
+                        </div>
+                        
+                        <div class="m-nodata" v-show="list.length==0" style="margin-top: 120px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- container end -->
+            <!-- footer start-->
+            <div class="footer">
+                <div class="f-tac">Copyright © 2025 南京奥派信息产业股份公司 版权所有 | 苏ICP备12023604号-8 | 专业的跨境电商数据解决方案</div>
+            </div>
+            <!-- footer start-->
+        </div>
+    </form>
+    <script src="js/vue.min.js?v=20251218" type="text/javascript"></script>
+    <script src="js/element.js?v=20251218" type="text/javascript"></script>
+    <script src="js/echarts.min.js?v=20251218" type="text/javascript"></script>
+    <script src="js/axios.js?v=20251218" type="text/javascript"></script>
+    <script src="js/download.js?v=20251218" type="text/javascript"></script>
+    <script src="js/detail.js?v=20251218" type="text/javascript"></script>
+</body>
+</html>
