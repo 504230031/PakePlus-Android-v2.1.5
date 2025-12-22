@@ -1,0 +1,107 @@
+{
+  "id": "5088958",
+  "name": "跨境电商智能体",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "跨境电商智能体",
+  "glyphs": [
+    {
+      "icon_id": "33134346",
+      "name": "内置数据源",
+      "font_class": "neizhishuju",
+      "unicode": "e9af",
+      "unicode_decimal": 59823
+    },
+    {
+      "icon_id": "45517690",
+      "name": "开始分析",
+      "font_class": "kaishifenxi",
+      "unicode": "e8b6",
+      "unicode_decimal": 59574
+    },
+    {
+      "icon_id": "35800296",
+      "name": "ic_清空",
+      "font_class": "qingkong",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "809956",
+      "name": "查看",
+      "font_class": "chakan",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "1167180",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "15392658",
+      "name": "分析5",
+      "font_class": "fenxi5",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "12600980",
+      "name": "xlsx",
+      "font_class": "xlsx",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "15053387",
+      "name": "上传",
+      "font_class": "shangchuan",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "28491622",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "2577770",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e6fa",
+      "unicode_decimal": 59130
+    },
+    {
+      "icon_id": "5387592",
+      "name": "箭头_页面_向右",
+      "font_class": "jiantou-xiangyou",
+      "unicode": "eb0b",
+      "unicode_decimal": 60171
+    },
+    {
+      "icon_id": "26971634",
+      "name": "查询配置",
+      "font_class": "sousuo-jiegou",
+      "unicode": "e769",
+      "unicode_decimal": 59241
+    },
+    {
+      "icon_id": "36615546",
+      "name": "售后评价分析",
+      "font_class": "pingjia-jiema",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "44530597",
+      "name": "二级菜单-资产规划",
+      "font_class": "jiage-guihua",
+      "unicode": "e834",
+      "unicode_decimal": 59444
+    }
+  ]
+}
