@@ -58,7 +58,7 @@ new Vue({
             self.$message.warning(`只能上传一个文件，如需更换请先移除当前文件`);
         },
         async uploadDefaultFile() {
-            const defaultUrl = 'tepmlate/热搜关键词-速卖通珠宝-项链100条-竞争指数.xlsx'; // 放在 public 下
+            const defaultUrl = './tepmlate/热搜关键词-速卖通珠宝-项链100条-竞争指数.xlsx'; // 放在 public 下
             const fileName = '热搜关键词-速卖通珠宝-项链100条-竞争指数.xlsx';
             const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
 
